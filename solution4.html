@@ -7,25 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
 
-       Number1 <input type="number" id="num1">
-       <select name="" id="operation">
-           <option value="Addition">Addition</option>
-           <option value="Subtraction">Subtraction</option>
-           <option value="Multiplication">Multiplication</option>
-           <option value="Division">Division</option>
-       </select>
-       Number2 <input type="number" id="num2">
-       <button type="button" onclick="doOperation()">Submit</button>
-       <h1 id="result"></h1>
-    </div>
 </body>
 <script>
 let Num1;
 let Num2;
-let valueResult = document.getElementById('result')
-// new Calculator;
+// let valueResult = document.getElementById('result')
 class Calculator{
     constructor(num1, num2){
         this.num1 = num1;
@@ -57,25 +44,25 @@ Calculator.prototype.divideNumber= function(){
 
 }
  
-function doOperation(){
-    Num1 = document.querySelector('#num1').value
-    Num2 = document.querySelector('#num2').value
-    operation = document.querySelector('#operation').value
-     if(operation == 'Addition'){
-        addNumber(Num1,Num2)
-     }
+// function doOperation(){
+//     Num1 = document.querySelector('#num1').value
+//     Num2 = document.querySelector('#num2').value
+//     operation = document.querySelector('#operation').value
+//      if(operation == 'Addition'){
+//         addNumber(Num1,Num2)
+//      }
     
-     else if(operation == 'Subtraction'){
-        subtractNumber(Num1,Num2)
-     }
-     else if(operation == 'Multiplication'){
-        multiplyNumber(Num1,Num2)
-     }
-     else if(operation == 'Division'){
-        divideNumber(Num1,Num2)
-     }
+//      else if(operation == 'Subtraction'){
+//         subtractNumber(Num1,Num2)
+//      }
+//      else if(operation == 'Multiplication'){
+//         multiplyNumber(Num1,Num2)
+//      }
+//      else if(operation == 'Division'){
+//         divideNumber(Num1,Num2)
+//      }
      
-}
+// }
 
 </script>
 </html>
