@@ -1,78 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Solution1</title>
-    <script scr="./js/solution1.js"></script>
+    <title>Sol1</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
   </head>
   <body>
-    <div id="container"></div>
+    
 
+      <div id="container">
 
-<script>
-let books = [
-
-{
-    "title": "Java",
-    "author": "Kumar",
-    "alreadyRead": false
-},
-{
-    "title": "Dot Net",
-    "author": "Michal",
-    "alreadyRead": false
-},
-{
-    "title": "C++",
-    "author": "Richard",
-    "alreadyRead": false
-},
-{
-    "title": "Html",
-    "author": "Hibrid",
-    "alreadyRead": false
-},
-{
-    "title": "React JS",
-    "author": "Return Jhon",
-    "alreadyRead": false
-}
-];
-
-
-let booklistings = function () {
-return books.map(book => `<li>${book.title} by ${book.author} <button onclick="BookStatus(this)">read</input></li></br>`).join('');
-}
-
-let template = `<ul>${booklistings()}</ul>`
-
-let container = document.querySelector("#container");
-container.innerHTML = template;
-
-function BookStatus(id) {
-
-let aElements = id.parentNode.parentNode.getElementsByTagName("button");
-let list = id.parentNode.parentNode.getElementsByTagName("li");
-let aElementsLength = aElements.length;
-console.log(aElements[2]);
-var index;
-for (var i = 0; i < aElementsLength; i++) {
-    if (aElements[i] == id) 
-    {
-        index = i;
-        list[i].style = "display:none";
-        aElements[i] = "UnRead";
-        console.log(i);
-        return index;
-
-    }
-}
-
-}
-
-
-    </script>
+      </div>
+      <script src="./js/solution1.js"></script>
+    <!-- Optional JavaScript -->
+   
   </body>
 </html>

@@ -1,60 +1,51 @@
-let books = [
+const books = [
+  { id: "book1", author: "author1", alreadyRead: false },
+  { id: "book2", author: "author2", alreadyRead: false },
+  { id: "book3", author: "author3", alreadyRead: false },
+  { id: "book4", author: "author4", alreadyRead: true }
+];
 
-    {
-        "title": "Java",
-        "author": "Kumar",
-        "alreadyRead": false
-    },
-    {
-        "title": "Dot Net",
-        "author": "Michal",
-        "alreadyRead": false
-    },
-    {
-        "title": "C++",
-        "author": "Richard",
-        "alreadyRead": false
-    },
-    {
-        "title": "Html",
-        "author": "Hibrid",
-        "alreadyRead": false
-    },
-    {
-        "title": "React JS",
-        "author": "Return Jhon",
-        "alreadyRead": false
+let displayList = function(books1) {
+  return books1
+    .map(
+      book =>
+        `<li>The ${book.id} Written by ${
+          book.author
+        }<input type="checkbox" id=${book.id} ${readStatus(
+          book
+        )} onChange="changed(this)" > </li> ${read(book)}`
+    )
+    .join(" ");
+
+  
+};
+
+let readStatus = book => {
+  if (book.alreadyRead) {
+    return "checked";
+  } else {
+    return "unchecked";
+  }
+};
+
+let changed = book => {
+  books.map(b => {
+    if (b.id == book.id) {
+      b.alreadyRead = !b.alreadyRead;
     }
-    ];
-    
-    
-    let booklistings = function () {
-    return books.map(book => `<li>${book.title} by ${book.author} <button onclick="BookStatus(this)">read</input></li></br>`).join('');
-    }
-    
-    let template = `<ul>${booklistings()}</ul>`
-    
-    let container = document.querySelector("#container");
-    container.innerHTML = template;
-    
-    function BookStatus(id) {
-    
-    let aElements = id.parentNode.parentNode.getElementsByTagName("button");
-    let list = id.parentNode.parentNode.getElementsByTagName("li");
-    let aElementsLength = aElements.length;
-    console.log(aElements[2]);
-    var index;
-    for (var i = 0; i < aElementsLength; i++) {
-        if (aElements[i] == id) 
-        {
-            index = i;
-            list[i].style = "display:none";
-            aElements[i] = "UnRead";
-            console.log(i);
-            return index;
-    
-        }
-    }
-    
-    }
-    
+  });
+  display();
+};
+
+let read = book => {
+  if (book.alreadyRead) return "Read";
+  else {
+    return "Unread";
+  }
+};
+
+let display = () => {
+  let template = `<ul>${displayList(books)}</ul>`;
+  document.getElementById("container").innerHTML = template;
+};
+display();
