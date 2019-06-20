@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Solution2</title>
+</head>
+<body>
+    <div>
+            Add Student:
+            <input type="text" id="studentName">
+            <br>
+            Add cource
+            <input type="text" id="studentCource">
+            <br>
+            <input type='button' onclick='AddStudent()' value='Submit' />
+            <br>
+           
+            <p>Student List:</p>
+            <ul id="demo"></ul>
+    </div>
+
+
+    <script>
+
+        // let list = document.getElementById('demo');
+
+
+    var list = document.getElementById('demo');
+    //  list = ['dinesh','gokul','mohan'];
+
+var lastid = 0;
+
+function AddStudent() {
+    var studentName = document.querySelector('#studentName').value;
+    var studentCource = document.querySelector('#studentCource').value;
+    var studentlist = document.createElement('li');
+    studentlist.appendChild(document.createTextNode
+    (
+        `${studentName} ,${studentCource}`)
+        // 'Name: '+studentName+' Cource: '+)
+     );
+    studentlist.setAttribute('id','item'+lastid);
+    var removeButton = document.createElement('button');
+    removeButton.appendChild(document.createTextNode("Delete"));
+    removeButton.setAttribute('onClick','removeName("'+'item'+lastid+'")');
+    studentlist.appendChild(removeButton);
+    lastid+=1;
+    list.appendChild(studentlist);
+}
+
+
+function removeName(itemid){
+    var item = document.getElementById(itemid);
+    list.removeChild(item);
+}
+    </script>
+</body>
+</html>
