@@ -1,68 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>solution4</title>
+  </head>
+  <body></body>
+  <script>
+    class Calculator {
+      constructor(a, b) {
+        this.a = a;
+        this.b = b;
+      }
 
-</body>
-<script>
-let Num1;
-let Num2;
-// let valueResult = document.getElementById('result')
-class Calculator{
-    constructor(num1, num2){
-        this.num1 = num1;
-        this.num2 = num2;
+      addition() {
+        console.log("Addition is :", this.a + this.b);
+      }
+      subtraction() {
+        console.log("subtraction is :", this.a - this.b);
+      }
+      multiply() {
+        console.log("Multiplication is :", this.a * this.b);
+      }
+      division() {
+        console.log("Division is :", this.a / this.b);
+      }
     }
-}
 
-Calculator.prototype.addNumber = function(){
-
- result=  + num1 + +num1;
- return result;
-
-}
-
-Calculator.prototype.subtractNumber = function(){
- result= Num1-Num2;
- return result;
-
-}
-
-Calculator.prototype.multiplyNumber= function(){
- result= Num1*Num2;
- return result;
-
-}
-Calculator.prototype.divideNumber= function(){
- result= Num1/Num2;
- return result;
-
-}
- 
-// function doOperation(){
-//     Num1 = document.querySelector('#num1').value
-//     Num2 = document.querySelector('#num2').value
-//     operation = document.querySelector('#operation').value
-//      if(operation == 'Addition'){
-//         addNumber(Num1,Num2)
-//      }
-    
-//      else if(operation == 'Subtraction'){
-//         subtractNumber(Num1,Num2)
-//      }
-//      else if(operation == 'Multiplication'){
-//         multiplyNumber(Num1,Num2)
-//      }
-//      else if(operation == 'Division'){
-//         divideNumber(Num1,Num2)
-//      }
-     
-// }
-
-</script>
+    let res = new Calculator(1, 2);
+    res.addition();
+    res.subtraction();
+    res.multiply();
+    res.division();
+  </script>
 </html>

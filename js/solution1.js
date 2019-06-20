@@ -16,8 +16,6 @@ let displayList = function(books1) {
         )} onChange="changed(this)" > </li> ${read(book)}`
     )
     .join(" ");
-
-  
 };
 
 let readStatus = book => {
@@ -45,7 +43,7 @@ let read = book => {
 };
 
 let display = () => {
-  let template = `<ul>${displayList(books)}</ul>`;
+  let template = `<ul style="list-style:none">${displayList(books)}</ul>`;
   document.getElementById("container").innerHTML = template;
 };
 display();

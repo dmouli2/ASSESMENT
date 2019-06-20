@@ -1,60 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Solution2</title>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-            Add Student:
-            <input type="text" id="studentName">
-            <br>
-            Add cource
-            <input type="text" id="studentCource">
-            <br>
-            <input type='button' onclick='AddStudent()' value='Submit' />
-            <br>
-           
-            <p>Student List:</p>
-            <ul id="demo"></ul>
+      Add Student:
+      <input type="text" id="studentName" />
+      <br />
+
+      <input type="button" onclick="addNewStudent()" value="Submit" />
+      <br />
+
+      <div id="container"></div>
     </div>
 
-
     <script>
+      let student = [
+        { id: 1, name: "dinesh" },
+        { id: 2, name: "ramesh" },
+        { id: 3, name: "Suresh" },
+        { id: 4, name: "Dinesh" }
+      ];
 
-        // let list = document.getElementById('demo');
+      let displaystudent = function(student) {
+        return student
+          .map(
+            student =>
+              `<li>  ${student.id}  ) Name:  ${student.name}<button id=${
+                student.id
+              } onclick="remove(this)">Remove</button> 
+        `
+          )
+          .join(" ");
+      };
 
+      let students = () => {
+        let template = `<ul style="list-style:none">${displaystudent(
+          student
+        )}</ul>`;
+        document.getElementById("container").innerHTML = template;
+      };
+      students();
+      let addNewStudent = () => {
+        let name = document.getElementById("studentName").value;
 
-    var list = document.getElementById('demo');
-    //  list = ['dinesh','gokul','mohan'];
+        let data = {
+          id: student.length + 1,
+          name: name
+        };
+        student.push(data);
+        students();
+      };
 
-var lastid = 0;
-
-function AddStudent() {
-    var studentName = document.querySelector('#studentName').value;
-    var studentCource = document.querySelector('#studentCource').value;
-    var studentlist = document.createElement('li');
-    studentlist.appendChild(document.createTextNode
-    (
-        `${studentName} ,${studentCource}`)
-        // 'Name: '+studentName+' Cource: '+)
-     );
-    studentlist.setAttribute('id','item'+lastid);
-    var removeButton = document.createElement('button');
-    removeButton.appendChild(document.createTextNode("Delete"));
-    removeButton.setAttribute('onClick','removeName("'+'item'+lastid+'")');
-    studentlist.appendChild(removeButton);
-    lastid+=1;
-    list.appendChild(studentlist);
-}
-
-
-function removeName(itemid){
-    var item = document.getElementById(itemid);
-    list.removeChild(item);
-}
+      let remove = stud => {
+        let filteredstudent = student.filter(s => s.id != stud.id);
+        student = filteredstudent;
+        students();
+      };
     </script>
-</body>
+  </body>
 </html>
