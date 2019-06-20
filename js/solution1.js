@@ -1,29 +1,60 @@
+let books = [
 
-let book = [
     {
-        id:1,
-        title:'The Hobbit',
-        alreadyRead: false,
+        "title": "Java",
+        "author": "Kumar",
+        "alreadyRead": false
     },
     {
-        id:2,
-        title:'The BAT',
-        alreadyRead: false,
+        "title": "Dot Net",
+        "author": "Michal",
+        "alreadyRead": false
     },
     {
-        id:3,
-        title:'The Peter cok',
-        alreadyRead: false,
+        "title": "C++",
+        "author": "Richard",
+        "alreadyRead": false
     },
     {
-        id:4,
-        title:'Please Dont Buy',
-        alreadyRead: false,
+        "title": "Html",
+        "author": "Hibrid",
+        "alreadyRead": false
+    },
+    {
+        "title": "React JS",
+        "author": "Return Jhon",
+        "alreadyRead": false
     }
-]
-
-
-
-function readBook(){
-console.log('vbj')
-}
+    ];
+    
+    
+    let booklistings = function () {
+    return books.map(book => `<li>${book.title} by ${book.author} <button onclick="BookStatus(this)">read</input></li></br>`).join('');
+    }
+    
+    let template = `<ul>${booklistings()}</ul>`
+    
+    let container = document.querySelector("#container");
+    container.innerHTML = template;
+    
+    function BookStatus(id) {
+    
+    let aElements = id.parentNode.parentNode.getElementsByTagName("button");
+    let list = id.parentNode.parentNode.getElementsByTagName("li");
+    let aElementsLength = aElements.length;
+    console.log(aElements[2]);
+    var index;
+    for (var i = 0; i < aElementsLength; i++) {
+        if (aElements[i] == id) 
+        {
+            index = i;
+            list[i].style = "display:none";
+            aElements[i] = "UnRead";
+            console.log(i);
+            return index;
+    
+        }
+    }
+    
+    }
+    
